@@ -1,0 +1,155 @@
+logging:
+  level:
+    ROOT: INFO
+    '[vn.com.unit]': DEBUG
+    '[com.miragesql.miragesql]': DEBUG
+  file:
+    clean-history-on-start: true
+    total-size-cap: 2GB
+    max-size: 50MB
+    max-history: 7
+    path: ./logs
+    name: ies-api.log
+cloud:
+  aws:
+    end-point: https://s3.ap-southeast-1.amazonaws.com
+    region:
+      auto: false
+      static: ap-southeast-1
+      use-default-aws-region-chain: true
+    stack: false
+    stack.auto: false
+    bucket:
+      name: lms-test-sit
+      root:
+      path-out: ctt/out
+    auth:
+      access-key: null
+      secret-key: null
+spring:
+  application:
+    name: ${APP_NAME:ies-dev}
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db53.unit.vn:51432/lms_uat
+    username: deploy
+    password: P@ssw0rdD3pl0y!@#
+    hikari:
+      poolName: Hikari
+      auto-commit: true
+      register-mbeans: true
+      idle-timeout: 10000
+      minimum-idle: 10
+      maximum-pool-size: 500
+      connection-timeout: 20000
+      max-lifetime: 100000
+  cache:
+    # type: none, redis
+    type: ${CACHE_TYPE:none}
+    redis:
+      # time-to-live: 24*60*60*1000
+      time-to-live: ${CACHE_REDIS_TTL:86400000}
+      use-key-prefix: true
+      key-prefix: ${CACHE_REDIS_KEY_PREFIX:${spring.application.name}::}
+    # Cache name : time-to-live
+  #    name-ttl:
+  #      '[cache-name-1]': 60000
+  #      '[cache-name-2]': 120000
+  redis:
+    host: ${CACHE_REDIS_HOST:redis.unit.vn}
+    port: ${CACHE_REDIS_PORT:30379}
+    password: ${CACHE_REDIS_PASSWORD:Unit@123}
+    database: ${CACHE_REDIS_DATABASE:0}
+    ssl: ${CACHE_REDIS_SSL:true}
+    timeout: ${CACHE_REDIS_TIMEOUT:30000}
+
+  logstash:
+    enabled: ${LOGSTASH_ENABLED:false}
+    app-name: ${LOGSTASH_APP_NAME:${spring.application.name}}
+    server: ${LOGSTASH_SERVER:elk.unit.vn}
+    port: ${LOGSTASH_PORT:35044}
+
+  devtools:
+    restart:
+      enabled: false
+
+jcanary:
+  # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    max-age: 1800
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+        base64-secret: NzRlNWU5Y2VkNTRhMmVmZDAwMjNlMjE5Mjk0NjFkZjA0MDdlZjU5MGJkYzU5ZTRmZmJmMzIwYWIyOTEwZjNhOThhOGQ1OWY3YTkwN2MyNGVjMThkNGJiMDQ5Y2I0NjM1ZWMxNWNhZThmODExMzRiMTY4Nzk1YzY0OWFkNjJiMTk=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400 #1800 #86400
+        token-validity-in-seconds-for-remember-me: 2592000
+      azure-sso:
+        client-id: 7fb8bb4d-c1d4-4a5a-a19c-b7ed4fedcf6e
+        tenant-id: 1fd1dfc4-e5e3-4d37-addb-3eca411ecaec
+
+jcanary-workflow:
+  # CamundaApi, ActivitiEmbed
+  vendorType: CamundaApi
+  #tenantId: ${BPM_TENANT_ID:${spring.application.name}}
+  externalBPM:
+    url: ${BPM_URL:https://bwe-sit.techcombank.com.vn/engine-rest}
+    callBackFlow: ${BPM_CALLBACK_FLOW:false}
+    callBackUrl: ${BPM_CALLBACK_URL:https://retail-lms-sit.techcombank.com.vn}
+    createTaskListenerClass: vn.com.unit.camunda.ppl.listener.PPLTaskListener
+    createProcessListenerClass: vn.com.unit.camunda.ppl.listener.PPLInstanceListener
+    completeProcessListenerClass: vn.com.unit.camunda.ppl.listener.PPLExecutionListener
+    executeServiceTaskClass: vn.com.unit.camunda.ppl.service.PPLServiceTask
+    username: ${BPM_USERNAME:ldap.bpm}
+    password: ${BPM_PASSWORD:Tech@123}
+
+#jca-quartz:
+#  config:
+#    overwrite-existing-jobs: true
+#    scheduler-name: ${QRTZ_JOB_NAME:JOB_SCHEDULER}
+#    wait-for-jobs-to-complete-on-shutdown: true
+#    auto-startup: false
+
+camunda.bpm.client:
+  base-url: ${jcanary-workflow.external-b-p-m.url}
+  worker-id: ${jcanary-workflow.tenant-id}
+  disable-backoff-strategy: true
+  disable-auto-fetching: true
+  basic-auth:
+    username: ${jcanary-workflow.external-b-p-m.username}
+    password: ${jcanary-workflow.external-b-p-m.password}
+
+# Elastic APM
+elastic:
+  apm:
+    enabled: ${ELASTIC_APM_ENABLED:false}
+    server-url: ${ELASTIC_APM_SERVER_URL:http://elk.unit.vn:38200}
+    service-name: ${ELASTIC_APM_SERVICE_NAME:${spring.application.name}}
+    secret-token: ${ELASTIC_APM_SECRET_TOKEN:}
+    environment: ${ELASTIC_APM_ENVIRONMENT:${spring.application.name}}
+    application-packages: vn.com.unit
+    log-level: ${logging.level.[vn.com.unit]}
+    enable_log_correlation: true
+    log_file: ${logging.file.name}
+
+# Keycloak settings
+keycloak-config.username: ${KEYCLOAK_USERNAME:taitm}
+keycloak-config.password: ${KEYCLOAK_PASSWORD:123456}
+keycloak-config.client-secret: ${KEYCLOAK_CLIENT_SECRET:}
+
+keycloak:
+  realm: ${KEYCLOAK_REALM:SpringBootKeycloak}
+  auth-server-url: ${KEYCLOAK_AUTH_SERVER_URL:http://localhost:7080}
+  resource: ${KEYCLOAK_RESOURCE:login-app}
+  use-resource-role-mappings: ${KEYCLOAK_RESOURCE_ROLE_MAPPING:true}
+  bearer-only: ${KEYCLOAK_BEARER_ONLY:true}
+  public-client: ${KEYCLOAK_PUBLIC_CLIENT:true}
+  ssl-required: ${KEYCLOAK_SSL_REQUIRED:none}
+
+security.enabled.csrf: false
