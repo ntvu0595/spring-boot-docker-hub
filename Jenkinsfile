@@ -7,7 +7,7 @@ node {
         checkout scm
     }
     stage('Build Specs OPENAPI') {
-        sh 'mvn clean install'
+        bat 'mvn clean install'
     }
 
     stage('Build image') {
