@@ -6,12 +6,15 @@ node {
 
         checkout scm
     }
+    stage('Build Specs OPENAPI') {
+        sh 'mvn clean install'
+    }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("edureka1/edureka")
+        app = docker.build("ntvu0595/spring-boot-docker-hub")
     }
 
     stage('Test image') {
