@@ -14,7 +14,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("ntvu0595/spring-boot-docker-hub")
+        app = docker.build("ntvu0595/spring-boot-docker-hub:latest")
     }
 
     stage('Test image') {
