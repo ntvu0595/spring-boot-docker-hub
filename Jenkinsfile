@@ -7,7 +7,7 @@ node {
         checkout scm
     }
     stage('Build Specs OPENAPI') {
-        sh 'mvn clean install'
+        bat 'mvn clean install'
     }
 
     stage('Build image') {
@@ -22,7 +22,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            sh 'echo "Tests passed"'
+            bat 'echo "Tests passed"'
         }
     }
 
