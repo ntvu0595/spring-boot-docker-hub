@@ -25,7 +25,7 @@ node {
             bat 'docker push ntvu0595/spring-boot-docker-hub'
     }
     stage('Connect server') {
-        withCredentials([usernameColonPassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', variable: 'host-centos')]) {
+        withCredentials([usernameColonPassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', variable: '')]) {
             sh 'sudo docker images'
         }
     }
