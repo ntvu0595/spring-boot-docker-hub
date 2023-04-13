@@ -1,0 +1,3 @@
+databaseChangelog:
+  - include:
+      file: liquibase/changelog/sql/2023-04-13.script-select-example.sql
