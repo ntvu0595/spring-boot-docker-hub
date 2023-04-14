@@ -1,5 +1,11 @@
 node {
     def app
+    def remote = [:]
+      remote.name = '192.168.1.139'
+      remote.host = '192.168.1.139'
+      remote.user = 'root'
+      remote.password = '4b@SDh^g-P'
+      remote.allowAnyHosts = true
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -24,9 +30,8 @@ node {
     stage('Push image') {
             bat 'docker push ntvu0595/spring-boot-docker-hub'
     }
-    stage('Connect server') {
-        withCredentials([usernamePassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', passwordVariable: '4b@SDh^g-P', usernameVariable: 'root')]) {
-            sh 'sudo docker images'
-        }
+    stage('Remote SSH') {
+        sshCommand remote: remote, command: "ls -lrt"
+        sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
     }
 }
