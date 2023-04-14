@@ -2,3 +2,115 @@
 2023-04-13 09:15:39.301  INFO 25316 --- [main] .v.s.SpringBootDockerHubApplicationTests : The following 1 profile is active: "prod"
 2023-04-13 09:15:40.568  INFO 25316 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
 2023-04-13 09:15:40.606  INFO 25316 --- [main] .v.s.SpringBootDockerHubApplicationTests : Started SpringBootDockerHubApplicationTests in 1.581 seconds (JVM running for 2.287)
+2023-04-13 09:16:42.743  INFO 21788 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 21788 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 09:16:42.746  INFO 21788 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 09:16:43.596  INFO 21788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 09:16:43.603  INFO 21788 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 09:16:43.603  INFO 21788 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 09:16:43.712  INFO 21788 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 09:16:43.712  INFO 21788 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 929 ms
+2023-04-13 09:16:44.170  INFO 21788 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 09:16:44.261  INFO 21788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 09:16:44.272  INFO 21788 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.958 seconds (JVM running for 3.121)
+2023-04-13 09:16:44.616  INFO 21788 --- [RMI TCP Connection(3)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 09:16:44.616  INFO 21788 --- [RMI TCP Connection(3)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 09:16:44.617  INFO 21788 --- [RMI TCP Connection(3)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-13 09:23:00.971  INFO 3300 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 3300 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 09:23:00.973  INFO 3300 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 09:23:01.729  INFO 3300 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 09:23:01.736  INFO 3300 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 09:23:01.736  INFO 3300 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 09:23:01.840  INFO 3300 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 09:23:01.840  INFO 3300 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 831 ms
+2023-04-13 09:23:02.296  INFO 3300 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 09:23:02.407  INFO 3300 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 09:23:02.419  INFO 3300 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.825 seconds (JVM running for 2.406)
+2023-04-13 09:23:02.923  INFO 3300 --- [RMI TCP Connection(1)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 09:23:02.924  INFO 3300 --- [RMI TCP Connection(1)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 09:23:02.924  INFO 3300 --- [RMI TCP Connection(1)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-13 09:26:15.413  INFO 20156 --- [main] .v.s.SpringBootDockerHubApplicationTests : Starting SpringBootDockerHubApplicationTests using Java 1.8.0_361 on Zephyrus-G14 with PID 20156 (started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 09:26:15.414  INFO 20156 --- [main] .v.s.SpringBootDockerHubApplicationTests : The following 1 profile is active: "prod"
+2023-04-13 09:26:16.815  INFO 20156 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 09:26:16.852  INFO 20156 --- [main] .v.s.SpringBootDockerHubApplicationTests : Started SpringBootDockerHubApplicationTests in 1.726 seconds (JVM running for 2.571)
+2023-04-13 09:39:28.767  INFO 26176 --- [main] .v.s.SpringBootDockerHubApplicationTests : Starting SpringBootDockerHubApplicationTests using Java 1.8.0_361 on Zephyrus-G14 with PID 26176 (started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 09:39:28.768  INFO 26176 --- [main] .v.s.SpringBootDockerHubApplicationTests : The following 1 profile is active: "prod"
+2023-04-13 09:39:30.141  INFO 26176 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 09:39:30.177  INFO 26176 --- [main] .v.s.SpringBootDockerHubApplicationTests : Started SpringBootDockerHubApplicationTests in 1.706 seconds (JVM running for 2.478)
+2023-04-13 09:57:26.697  INFO 20100 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 20100 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 09:57:26.699  INFO 20100 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 09:57:27.557  INFO 20100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 09:57:27.563  INFO 20100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 09:57:27.564  INFO 20100 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 09:57:27.674  INFO 20100 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 09:57:27.675  INFO 20100 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 940 ms
+2023-04-13 09:57:28.128  INFO 20100 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 09:57:28.218  INFO 20100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 09:57:28.228  INFO 20100 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.932 seconds (JVM running for 2.53)
+2023-04-13 09:57:28.675  INFO 20100 --- [RMI TCP Connection(2)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 09:57:28.675  INFO 20100 --- [RMI TCP Connection(2)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 09:57:28.676  INFO 20100 --- [RMI TCP Connection(2)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-04-13 11:02:30.296  INFO 27580 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 27580 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 11:02:30.298  INFO 27580 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 11:02:30.911  INFO 27580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 11:02:30.915  INFO 27580 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 11:02:30.916  INFO 27580 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 11:02:30.999  INFO 27580 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 11:02:30.999  INFO 27580 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 673 ms
+2023-04-13 11:02:31.300  INFO 27580 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 11:02:31.325  INFO 27580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 11:02:31.334  INFO 27580 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.33 seconds (JVM running for 1.933)
+2023-04-13 11:02:31.834  INFO 27580 --- [RMI TCP Connection(2)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 11:02:31.835  INFO 27580 --- [RMI TCP Connection(2)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 11:02:31.835  INFO 27580 --- [RMI TCP Connection(2)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-13 11:06:34.731  INFO 28732 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 28732 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 11:06:34.733  INFO 28732 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 11:06:35.364  INFO 28732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 11:06:35.369  INFO 28732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 11:06:35.369  INFO 28732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 11:06:35.456  INFO 28732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 11:06:35.456  INFO 28732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 697 ms
+2023-04-13 11:06:35.838  INFO 28732 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 11:06:35.900  INFO 28732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 11:06:35.909  INFO 28732 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.43 seconds (JVM running for 1.859)
+2023-04-13 11:06:36.455  INFO 28732 --- [RMI TCP Connection(2)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 11:06:36.455  INFO 28732 --- [RMI TCP Connection(2)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 11:06:36.455  INFO 28732 --- [RMI TCP Connection(2)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-13 11:11:35.580  INFO 23120 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 23120 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 11:11:35.583  INFO 23120 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 11:11:36.312  INFO 23120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 11:11:36.317  INFO 23120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 11:11:36.317  INFO 23120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 11:11:36.409  INFO 23120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 11:11:36.409  INFO 23120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 793 ms
+2023-04-13 11:11:36.890  INFO 23120 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 11:11:36.923  INFO 23120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 11:11:36.933  INFO 23120 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.708 seconds (JVM running for 2.266)
+2023-04-13 11:11:37.637  INFO 23120 --- [RMI TCP Connection(3)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 11:11:37.637  INFO 23120 --- [RMI TCP Connection(3)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 11:11:37.638  INFO 23120 --- [RMI TCP Connection(3)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-13 11:48:49.828  INFO 31536 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 31536 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 11:48:49.831  INFO 31536 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 11:48:50.642  INFO 31536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 11:48:50.648  INFO 31536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 11:48:50.648  INFO 31536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 11:48:50.782  INFO 31536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 11:48:50.782  INFO 31536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 914 ms
+2023-04-13 11:48:51.297  INFO 31536 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 11:48:51.339  INFO 31536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 11:48:51.350  INFO 31536 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.905 seconds (JVM running for 2.688)
+2023-04-13 11:48:51.673  INFO 31536 --- [RMI TCP Connection(3)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 11:48:51.674  INFO 31536 --- [RMI TCP Connection(3)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 11:48:51.674  INFO 31536 --- [RMI TCP Connection(3)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-13 11:49:10.068  INFO 28312 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Starting SpringBootDockerHubApplication using Java 1.8.0_361 on Zephyrus-G14 with PID 28312 (E:\Unit\Source\spring-boot-docker-hub\target\classes started by Zephyrus in E:\Unit\Source\spring-boot-docker-hub)
+2023-04-13 11:49:10.070  INFO 28312 --- [main] v.c.v.s.SpringBootDockerHubApplication   : The following 1 profile is active: "prod"
+2023-04-13 11:49:10.803  INFO 28312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-13 11:49:10.808  INFO 28312 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-13 11:49:10.808  INFO 28312 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2023-04-13 11:49:10.912  INFO 28312 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-13 11:49:10.912  INFO 28312 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 808 ms
+2023-04-13 11:49:11.420  INFO 28312 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-13 11:49:11.455  INFO 28312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-13 11:49:11.465  INFO 28312 --- [main] v.c.v.s.SpringBootDockerHubApplication   : Started SpringBootDockerHubApplication in 1.746 seconds (JVM running for 2.316)
+2023-04-13 11:49:12.049  INFO 28312 --- [RMI TCP Connection(1)-10.169.176.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-13 11:49:12.049  INFO 28312 --- [RMI TCP Connection(1)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-13 11:49:12.050  INFO 28312 --- [RMI TCP Connection(1)-10.169.176.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

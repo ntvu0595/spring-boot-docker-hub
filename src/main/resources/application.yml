@@ -29,10 +29,11 @@ cloud:
 spring:
   application:
     name: ${APP_NAME:ies-dev}
+
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db53.unit.vn:51432/lms_uat
+    url: jdbc:postgresql://db53.unit.vn:51432/lms_uats
     username: deploy
     password: P@ssw0rdD3pl0y!@#
     hikari:
@@ -56,6 +57,14 @@ spring:
   #    name-ttl:
   #      '[cache-name-1]': 60000
   #      '[cache-name-2]': 120000
+
+
+  liquibase:
+    enabled: true
+    change-log: liquibase/changelog/db.changelog-master.yaml
+    database-change-log-table: databasechangelog
+    database-change-log-lock-table: databasechangeloglock
+
   redis:
     host: ${CACHE_REDIS_HOST:redis.unit.vn}
     port: ${CACHE_REDIS_PORT:30379}

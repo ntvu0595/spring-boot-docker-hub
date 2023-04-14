@@ -25,7 +25,7 @@ node {
             bat 'docker push ntvu0595/spring-boot-docker-hub'
     }
     stage('Connect server') {
-        withCredentials([sshUserPrivateKey(credentialsId: '', keyFileVariable: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDMmjdNZb4rAi5A5UACdPvzy/nLvOhrWTjFm7m/yLjWRgSvMJc62xjwLMCadpKF5HcBOmDyLzONhmmn9GHXb/Uau8InFIb9WMR/QbdjDYV+Bt39cTVPlP/NNwbRPP5fRU+LiYz19Qsngs8rs86R8vf9N4Wr9L7Au5zG+jObx87hX1dScqB2oU06c2Cdf4P0YiMrY2QzKeZDoSDBjG307nOl7ZxpXc0ghzST1dyRI5olLirXddPpYaHpf28eZ2q6jS2d9ZLZOGSuYNZUXfwhs3m80SHSwhbyMbRwaItc1Qzu2MPphmi1kvyUtqSbMDL2UzPjvf4GYabpJWDZ7iyfUe1j')]) {
+        withCredentials([usernamePassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', passwordVariable: '4b@SDh^g-P', usernameVariable: 'root')]) {
             sh 'sudo docker images'
         }
     }
