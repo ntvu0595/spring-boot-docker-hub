@@ -33,6 +33,6 @@ node {
     stage('Remote SSH') {
         sshCommand remote: remote, command: "sudo docker ps"
         sshCommand remote: remote, command: "docker pull ntvu0595/spring-boot-docker-hub"
-        sshCommand remote: remote, command: "sudo docker run -d --rm -p9010:8080 image=ntvu0595/spring-boot-docker-hub:latest -f"
+        sshCommand remote: remote, command: "sudo docker run -d --rm -p9010:8080 ntvu0595/spring-boot-docker-hub:latest -f"
     }
 }
