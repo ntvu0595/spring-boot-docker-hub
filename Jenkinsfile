@@ -31,7 +31,6 @@ node {
             bat 'docker push ntvu0595/spring-boot-docker-hub'
     }
     stage('Remote SSH') {
-        sshCommand remote: remote, command: "ls -lrt"
-        sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
+        sshCommand remote: remote, command: "sudo docker ps"
     }
 }
