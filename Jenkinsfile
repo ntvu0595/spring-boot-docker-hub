@@ -7,7 +7,7 @@ node {
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
 
-      DOCKER_REPO="ntvu0595/spring-boot-docker-hub"
+      def DOCKER_REPO="ntvu0595/spring-boot-docker-hub"
 
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
