@@ -17,7 +17,7 @@ node {
     }
     stage("build") {
           withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-            sh 'docker login --username $DOCKER_USERNAME --password-stdin'
+            bat 'docker login --username $DOCKER_USERNAME --password-stdin'
           }
         }
 //     stage('Build image') {
