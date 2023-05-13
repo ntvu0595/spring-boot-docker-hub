@@ -12,9 +12,9 @@ node {
 
         checkout scm
     }
-    stage('Build Specs OPENAPI') {
-        bat 'mvn clean install'
-    }
+//     stage('Build Specs OPENAPI') {
+//         bat 'mvn clean install'
+//     }
     stage("build") {
           withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
             bat 'echo $DOCKER_USERNAME'
@@ -22,7 +22,7 @@ node {
               echo USERNAME
               // or inside double quotes for string interpolation
               echo "username is $DOCKER_USERNAME"
-              echo "pass is $DOCKER_PASSWORD"
+              echo "pass is ${DOCKER_PASSWORD}"
           }
         }
 //     stage('Build image') {
