@@ -17,8 +17,11 @@ node {
     }
     stage("build") {
           withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-            bat 'echo $DOCKER_USERNAME ${DOCKER_USERNAME}'
-            bat 'docker login --username $DOCKER_USERNAME --password Nguyen1995'
+            bat 'echo $PASSWORD'
+              // also available as a Groovy variable
+              echo USERNAME
+              // or inside double quotes for string interpolation
+              echo "username is $USERNAME"
           }
         }
 //     stage('Build image') {
