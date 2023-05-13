@@ -18,6 +18,7 @@ node {
         bat 'mvn clean install'
     }
     stage('Build image') {
+        echo 'build image docker'
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         bat 'docker build -t ntvu0595/spring-boot-docker-hub:latest .'
