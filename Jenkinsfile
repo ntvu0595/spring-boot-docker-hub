@@ -7,7 +7,7 @@ node {
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
 
-    def jenkinsVar = readProperties  file: './Jenkins.properties'
+//     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -20,7 +20,6 @@ node {
     stage("Docker login") {
           withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
 //              sh 'docker login --username $DOCKER_USERNAME --password-stdin docker.io' //linux
-            echo '%jenkinsVar.DOCKER_REGISTRY%'
             bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD% docker.io' //windows
           }
      }
@@ -28,10 +27,10 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        bat 'docker build -t %jenkinsVar.DOCKER_REGISTRY% .'
+        bat 'docker build -t ntvu0595/spring-boot-docker-hub .'
     }
     stage('Push image') {
-        bat 'docker push %jenkinsVar.DOCKER_REGISTRY%'
+        bat 'docker push ntvu0595/spring-boot-docker-hub'
     }
     withCredentials([usernamePassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', passwordVariable: 'SERVER_PASSWORD', usernameVariable: 'SERVER_USERNAME')]) {
         // some block
