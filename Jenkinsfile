@@ -15,16 +15,10 @@ node {
     stage('Build Specs OPENAPI') {
         bat 'mvn clean install'
     }
-    withCredentials([
-            [
-                credentialsId: 'docker-hub',
-                usernameVariable: 'NEXUS_USER',
-                passwordVariable: 'NEXUS_PASSWD'
-            ]
-        ]) {
-            stage('Build image') {
-                bat 'docker login -u ${NEXUS_USER} -p ${NEXUS_PASSWD}  docker.io'
-            }
+    stage("build") {
+          withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+            sh 'docker login --username $DOCKER_USERNAME --password-stdin'
+          }
         }
 //     stage('Build image') {
 //         /* This builds the actual image; synonymous to
