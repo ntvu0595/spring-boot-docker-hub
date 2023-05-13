@@ -18,23 +18,25 @@ node {
     stage('Login docker') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-        bat 'docker login -u ntvu0595 -p Nguyen1995 docker.io'
+        withCredentials([usernamePassword(credentialsId: 'hub.docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+            bat 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USER --password-stdin'
+        }
+//         bat 'docker login -u ntvu0595 -p Nguyen1995 docker.io'
     }
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        bat 'docker build -t ntvu0595/spring-boot-docker-hub .'
-    }
-    stage('Push image') {
-            bat 'docker push ntvu0595/spring-boot-docker-hub'
-    }
-    stage('Remote SSH') {
-        sshCommand remote: remote, command: 'sudo docker login -u ntvu0595 -p Nguyen1995 docker.io'
-        sshCommand remote: remote, command: 'sudo docker ps'
-        sshCommand remote: remote, command: 'sudo docker stop $(docker ps -a -q --filter ancestor=ntvu0595/spring-boot-docker-hub --format="{{.ID}}")'
-        sshCommand remote: remote, command: 'sudo docker pull ntvu0595/spring-boot-docker-hub'
-        sshCommand remote: remote, command: 'sudo docker run -d --rm -p9010:8080 ntvu0595/spring-boot-docker-hub:latest -f'
-    }
+//     stage('Build image') {
+//         /* This builds the actual image; synonymous to
+//          * docker build on the command line */
+//
+//         bat 'docker build -t ntvu0595/spring-boot-docker-hub .'
+//     }
+//     stage('Push image') {
+//         bat 'docker push ntvu0595/spring-boot-docker-hub'
+//     }
+//     stage('Remote SSH') {
+//         sshCommand remote: remote, command: 'sudo docker login -u ntvu0595 -p Nguyen1995 docker.io'
+//         sshCommand remote: remote, command: 'sudo docker ps'
+//         sshCommand remote: remote, command: 'sudo docker stop $(docker ps -a -q --filter ancestor=ntvu0595/spring-boot-docker-hub --format="{{.ID}}")'
+//         sshCommand remote: remote, command: 'sudo docker pull ntvu0595/spring-boot-docker-hub'
+//         sshCommand remote: remote, command: 'sudo docker run -d --rm -p9010:8080 ntvu0595/spring-boot-docker-hub:latest -f'
+//     }
 }
