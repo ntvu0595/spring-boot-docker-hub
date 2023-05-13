@@ -19,7 +19,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         withCredentials([usernamePassword(credentialsId: 'server-jboss', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-            bat 'sudo docker ps'
+            sh 'docker ps'
         }
 //         bat 'docker login -u ntvu0595 -p Nguyen1995 docker.io'
     }
