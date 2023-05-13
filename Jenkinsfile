@@ -35,7 +35,7 @@ node {
     withCredentials([usernamePassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', passwordVariable: 'SERVER_PASSWORD', usernameVariable: 'SERVER_USERNAME')]) {
         script {
                 COMMANDS = "cd /www && git fetch"
-                sh "sshpass -p %SERVER_PASSWORD% ssh -A -o StrictHostKeyChecking=no -T %SERVER_USERNAME%@192.168.1.139 '$COMMANDS'"
+                bat "sshpass -p %SERVER_PASSWORD% ssh -A -o StrictHostKeyChecking=no -T %SERVER_USERNAME%@192.168.1.139 '$COMMANDS'"
         }
     }
 //     stage('Remote SSH') {
