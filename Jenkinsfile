@@ -19,7 +19,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         withCredentials([usernamePassword(credentialsId: 'hub.docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-            bat 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USER --password-stdin $DOCKER_PASSWORD docker.io'
+            bat 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USER --password-stdin'
         }
 //         bat 'docker login -u ntvu0595 -p Nguyen1995 docker.io'
     }
