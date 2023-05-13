@@ -17,12 +17,6 @@ node {
     stage('Build Specs OPENAPI') {
         bat 'mvn clean install'
     }
-    stage("Docker login") {
-          withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-//              sh 'docker login --username $DOCKER_USERNAME --password-stdin docker.io' //linux
-            bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD% docker.io' //windows
-          }
-     }
     stage('Build image') {
         DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
         bat '%DOCKER_TAG%'
@@ -31,9 +25,13 @@ node {
 
         bat 'docker build -t ntvu0595/spring-boot-docker-hub .'
     }
-    stage('Push image') {
-        bat 'docker push ntvu0595/spring-boot-docker-hub'
-    }
+    stage("Push image") {
+          withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+//              sh 'docker login --username $DOCKER_USERNAME --password-stdin docker.io' //linux
+            bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD% docker.io' //windows
+            bat 'docker push ntvu0595/spring-boot-docker-hub'
+          }
+     }
     stage('Remote SSH') {
         sshCommand remote: remote, command: 'sudo docker login -u ntvu0595 -p Nguyen1995 docker.io'
         sshCommand remote: remote, command: 'sudo docker ps'
