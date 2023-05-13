@@ -12,6 +12,7 @@ node {
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
+        echo '$DOCKER_REPO'
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
