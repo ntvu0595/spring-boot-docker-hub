@@ -9,40 +9,36 @@ node {
 
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
-//     stage('Clone repository') {
-//         /* Let's make sure we have the repository cloned to our workspace */
-//
-//         checkout scm
-//     }
-//     stage('Build Specs OPENAPI') {
-//         bat 'mvn clean install'
-//     }
-//     stage("Docker login") {
-//           withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-// //              sh 'docker login --username $DOCKER_USERNAME --password-stdin docker.io' //linux
-//             bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD% docker.io' //windows
-//           }
-//      }
-//     stage('Build image') {
-//         /* This builds the actual image; synonymous to
-//          * docker build on the command line */
-//
-//         bat 'docker build -t ntvu0595/spring-boot-docker-hub .'
-//     }
-//     stage('Push image') {
-//         bat 'docker push ntvu0595/spring-boot-docker-hub'
-//     }
-    withCredentials([usernamePassword(credentialsId: '112b4a2a-a9d3-4fc7-a698-b319c22c1ee7', passwordVariable: 'SERVER_PASSWORD', usernameVariable: 'SERVER_USERNAME')]) {
-        script {
-                COMMANDS = "cd /www && git fetch"
-                bat "sshpass -p %SERVER_PASSWORD% ssh -A -o StrictHostKeyChecking=no -T %SERVER_USERNAME%@192.168.1.139 '$COMMANDS'"
-        }
+    stage('Clone repository') {
+        /* Let's make sure we have the repository cloned to our workspace */
+
+        checkout scm
     }
-//     stage('Remote SSH') {
-//         sshCommand remote: remote, command: 'sudo docker login -u ntvu0595 -p Nguyen1995 docker.io'
-//         sshCommand remote: remote, command: 'sudo docker ps'
-//         sshCommand remote: remote, command: 'sudo docker stop $(docker ps -a -q --filter ancestor=ntvu0595/spring-boot-docker-hub --format="{{.ID}}")'
-//         sshCommand remote: remote, command: 'sudo docker pull ntvu0595/spring-boot-docker-hub'
-//         sshCommand remote: remote, command: 'sudo docker run -d --rm -p9010:8080 ntvu0595/spring-boot-docker-hub:latest -f'
-//     }
+    stage('Build Specs OPENAPI') {
+        bat 'mvn clean install'
+    }
+    stage("Docker login") {
+          withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+//              sh 'docker login --username $DOCKER_USERNAME --password-stdin docker.io' //linux
+            bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD% docker.io' //windows
+          }
+     }
+    stage('Build image') {
+        DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
+        bat '%DOCKER_TAG%'
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        bat 'docker build -t ntvu0595/spring-boot-docker-hub .'
+    }
+    stage('Push image') {
+        bat 'docker push ntvu0595/spring-boot-docker-hub'
+    }
+    stage('Remote SSH') {
+        sshCommand remote: remote, command: 'sudo docker login -u ntvu0595 -p Nguyen1995 docker.io'
+        sshCommand remote: remote, command: 'sudo docker ps'
+        sshCommand remote: remote, command: 'sudo docker stop $(docker ps -a -q --filter ancestor=ntvu0595/spring-boot-docker-hub --format="{{.ID}}")'
+        sshCommand remote: remote, command: 'sudo docker pull ntvu0595/spring-boot-docker-hub'
+        sshCommand remote: remote, command: 'sudo docker run -d --rm -p9010:8080 ntvu0595/spring-boot-docker-hub:latest -f'
+    }
 }
