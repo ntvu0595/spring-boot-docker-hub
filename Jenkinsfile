@@ -17,6 +17,7 @@ node {
     }
     stage("build") {
           withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+            bat 'echo $DOCKER_USERNAME ${DOCKER_USERNAME}'
             bat 'docker login --username $DOCKER_USERNAME --password Nguyen1995'
           }
         }
