@@ -18,10 +18,8 @@ node {
     stage('Login docker') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        steps {
-                withCredentials([usernamePassword(credentialsId: 'hub.docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    bat 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin'
-                }
+        withCredentials([usernamePassword(credentialsId: 'hub.docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+            bat 'echo ${DOCKER_PASSWORD} | docker login -u ntvu0595 -p Nguyen1995 docker.io'
         }
 //         bat 'docker login -u ntvu0595 -p Nguyen1995 docker.io'
     }
