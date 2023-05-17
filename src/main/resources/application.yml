@@ -33,7 +33,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db53.unit.vn:51432/lms_uats
+    url: jdbc:postgresql://db53.unit.vn:51432/lms_uat
     username: deploy
     password: P@ssw0rdD3pl0y!@#
     hikari:
@@ -61,9 +61,9 @@ spring:
 
   liquibase:
     enabled: true
-    change-log: liquibase/changelog/db.changelog-master.yaml
-    database-change-log-table: databasechangelog
-    database-change-log-lock-table: databasechangeloglock
+    change-log: classpath:/liquibase/changelog/changelog-dev.yml
+    database-change-log-table: DATABASECHANGELOG
+    database-change-log-lock-table: DATABASECHANGELOGLOCK
 
   redis:
     host: ${CACHE_REDIS_HOST:redis.unit.vn}
