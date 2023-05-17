@@ -17,6 +17,8 @@ import fr.opensagres.xdocreport.template.TemplateEngineKind;
 import fr.opensagres.xdocreport.template.formatter.FieldsMetadata;
 import fr.opensagres.xdocreport.template.formatter.NullImageBehaviour;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +38,7 @@ import java.io.*;
 @RequestMapping("/rest")
 public class HelloController {
 
+    Logger logger = LoggerFactory.getLogger(HelloController.class);
     /**
      * This is about <code>HelloController.java</code>.
      *
@@ -47,6 +50,7 @@ public class HelloController {
     @GetMapping("/get")
     public String hello() throws IOException {
         System.out.print("LMA");
+        logger.info("Hello open my log");
 //        String docxFileName = "E:\\DocExport.docx";
 //        String pdfFileName = "E:\\Document.pdf";
 //        convertWordToPdf(docxFileName, pdfFileName);
@@ -68,46 +72,46 @@ public class HelloController {
         return "Helaos";
     }
 
-    private void convertWordToPdf(String docxFileName, String pdfFileName) throws IOException {
-        File tempFileDocx = File.createTempFile("DocExport", ".docx");
-        try (InputStream docxInputStream = new FileInputStream(docxFileName);) {
-            IXDocReport ixDocReport = XDocReportRegistry.getRegistry().loadReport(docxInputStream,
-                    TemplateEngineKind.Velocity);
-            IContext context = ixDocReport.createContext();
-            FieldsMetadata metadata = ixDocReport.createFieldsMetadata();
-
-            context.put("testtingData", "test data");
-
-            try (FileOutputStream fileOutputStream = new FileOutputStream(tempFileDocx)) {
-                ixDocReport.process(context, fileOutputStream);
-                XDocReportRegistry.getRegistry().unregisterReport(ixDocReport);
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (XDocReportException e) {
-            throw new RuntimeException(e);
-        }
-        if (StringUtils.equals("PDF", "PDF")) {
-
-            try (OutputStream outputStream = new FileOutputStream(pdfFileName)) {
-                Options options = Options.getFrom(DocumentKind.DOCX).to(ConverterTypeTo.PDF);
-                PdfOptions pdfOptions = PdfOptions.create();
-                options.subOptions(pdfOptions);
-                IConverter conversor = ConverterRegistry.getRegistry().getConverter(options);
-                FileInputStream inputStreamConvert = new FileInputStream(tempFileDocx);
-                try {
-                    if (null != conversor) {
-                        conversor.convert(inputStreamConvert, outputStream, options);
-                    }
-                    outputStream.flush();
-                } catch (XDocConverterException | IOException e) {
-                } finally {
-                    inputStreamConvert.close();
-                    outputStream.close();
-                }
-            }
-        }
-    }
+//    private void convertWordToPdf(String docxFileName, String pdfFileName) throws IOException {
+//        File tempFileDocx = File.createTempFile("DocExport", ".docx");
+//        try (InputStream docxInputStream = new FileInputStream(docxFileName);) {
+//            IXDocReport ixDocReport = XDocReportRegistry.getRegistry().loadReport(docxInputStream,
+//                    TemplateEngineKind.Velocity);
+//            IContext context = ixDocReport.createContext();
+//            FieldsMetadata metadata = ixDocReport.createFieldsMetadata();
+//
+//            context.put("testtingData", "test data");
+//
+//            try (FileOutputStream fileOutputStream = new FileOutputStream(tempFileDocx)) {
+//                ixDocReport.process(context, fileOutputStream);
+//                XDocReportRegistry.getRegistry().unregisterReport(ixDocReport);
+//            }
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        } catch (XDocReportException e) {
+//            throw new RuntimeException(e);
+//        }
+//        if (StringUtils.equals("PDF", "PDF")) {
+//
+//            try (OutputStream outputStream = new FileOutputStream(pdfFileName)) {
+//                Options options = Options.getFrom(DocumentKind.DOCX).to(ConverterTypeTo.PDF);
+//                PdfOptions pdfOptions = PdfOptions.create();
+//                options.subOptions(pdfOptions);
+//                IConverter conversor = ConverterRegistry.getRegistry().getConverter(options);
+//                FileInputStream inputStreamConvert = new FileInputStream(tempFileDocx);
+//                try {
+//                    if (null != conversor) {
+//                        conversor.convert(inputStreamConvert, outputStream, options);
+//                    }
+//                    outputStream.flush();
+//                } catch (XDocConverterException | IOException e) {
+//                } finally {
+//                    inputStreamConvert.close();
+//                    outputStream.close();
+//                }
+//            }
+//        }
+//    }
 }
