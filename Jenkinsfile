@@ -6,12 +6,16 @@ node {
       remote.user = 'root'
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
-
+    environment {
+        tag = sh(returnStdout: true, script: "git rev-parse --short=10 HEAD").trim()
+    }
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
+         echo '%{tag}'
+         echo ':${tag}'
         checkout scm
     }
     stage('Build Specs OPENAPI') {
@@ -21,8 +25,8 @@ node {
         echo 'build image docker data check list'
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-         echo 'docker build -t ntvu0595/spring-boot-docker-hub:$(git rev-parse --short HEAD)'
-         echo 'docker build -t ntvu0595/spring-boot-docker-hub:%(git rev-parse --short HEAD)'
+         echo '%{tag}'
+         echo ':${tag}'
         bat 'docker build -t ntvu0595/spring-boot-docker-hub:$(git rev-parse --short HEAD) .'
     }
 //     stage("Push image") {
