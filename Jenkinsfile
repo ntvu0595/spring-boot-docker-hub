@@ -6,13 +6,13 @@ node {
       remote.user = 'root'
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
-    env.GITHASH  = bat(script: "echo \$(git rev-parse --short HEAD)", returnStdout: true)
+    def output = sh(returnStdout: true, script: 'pwd')
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        echo env
-        echo env.GITHASH
+        echo "Output: ${output}"
+        echo "Output: %{output}"
         checkout scm
     }
     stage('Build Specs OPENAPI') {
