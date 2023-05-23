@@ -6,7 +6,7 @@ node {
       remote.user = 'root'
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
-    def output = bat(returnStdout: true, script: 'pwd')
+    def output = bat(returnStdout: true, script: 'git rev-parse --short HEAD')
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
