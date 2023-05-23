@@ -6,7 +6,7 @@ node {
       remote.user = 'root'
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
-    def output = bat(script: "echo \$(git rev-parse --short HEAD)", returnStdout: true)
+    def output = bat(returnStdout: true, script: "git rev-parse --short=10 HEAD").trim()
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
@@ -22,9 +22,9 @@ node {
         echo 'build image docker data check list'
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-         echo '%{tag}'
-         echo ':${tag}'
-        bat 'docker build -t ntvu0595/spring-boot-docker-hub:%{output} .'
+         echo '%{output}'
+         echo ':${output}'
+        bat 'docker build -t ntvu0595/spring-boot-docker-hub:$(output) .'
     }
 //     stage("Push image") {
 //         withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
