@@ -13,7 +13,7 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        echo env.tag
+        echo env
         checkout scm
     }
     stage('Build Specs OPENAPI') {
