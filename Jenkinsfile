@@ -6,7 +6,7 @@ node {
       remote.user = 'root'
       remote.password = '4b@SDh^g-P'
       remote.allowAnyHosts = true
-    env.GITHASH  = bat(script: "echo \$(git log -1 --oneline | cut -c 1-7 )", returnStdout: true)
+    env.GITHASH  = bat(script: "echo \$(git rev-parse --short HEAD)", returnStdout: true)
 //     def jenkinsVar = readProperties  file: './Jenkins.properties'
 
     stage('Clone repository') {
